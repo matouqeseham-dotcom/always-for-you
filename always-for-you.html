@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Always for you 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Nunito:wght@300;400;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: linear-gradient(160deg, #fff5f8 0%, #fce4ec 50%, #ffd6e7 100%);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+.hearts-bg { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.fh { position:absolute; opacity:0.13; animation: floatUp linear infinite; }
+@keyframes floatUp {
+  0%   { transform:translateY(100vh) rotate(0deg); opacity:0.13; }
+  100% { transform:translateY(-100px) rotate(20deg); opacity:0; }
+}
+.sun-bg { position:fixed; pointer-events:none; z-index:0; }
+.sun-bg.tl { top:-40px; left:-40px; width:180px; opacity:0.07; animation:spin 24s linear infinite; }
+.sun-bg.tr { top:20px; right:-40px; width:140px; opacity:0.06; animation:spin 32s linear infinite reverse; }
+.sun-bg.ml { top:38%; left:-50px; width:130px; opacity:0.055; animation:spin 28s linear infinite; }
+.sun-bg.br { bottom:80px; right:-40px; width:160px; opacity:0.065; animation:spin 22s linear infinite reverse; }
+.sun-bg.bl { bottom:30px; left:-30px; width:110px; opacity:0.06; animation:spin 26s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.page { position:relative; z-index:1; }
+
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:3rem 2rem;
+}
+.hero-sun { width:110px; margin-bottom:1.2rem; animation:pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+.hero-eyebrow { font-size:0.8rem; letter-spacing:0.3em; text-transform:uppercase; color:#d81b60; font-weight:600; margin-bottom:0.8rem; }
+.hero-title { font-family:'Cormorant Garamond', serif; font-size:clamp(3.2rem,9vw,6rem); color:#880e4f; line-height:1.1; margin-bottom:1.2rem; }
+.hero-title em { color:#e91e63; font-style:italic; }
+.hero-sub { font-size:1rem; color:#c2185b; font-weight:300; max-width:420px; line-height:1.9; margin-bottom:2.5rem; }
+.scroll-hint { font-size:0.8rem; color:#e91e63; letter-spacing:0.1em; animation:bob 1.6s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);} }
+
+.letter-wrap { max-width:680px; margin:0 auto; padding:4rem 1.5rem 2rem; }
+.letter-label { text-align:center; font-size:0.78rem; letter-spacing:0.28em; text-transform:uppercase; color:#e91e63; font-weight:600; margin-bottom:0.6rem; }
+.letter-heading { font-family:'Cormorant Garamond', serif; font-size:clamp(1.8rem,5vw,2.8rem); color:#880e4f; text-align:center; margin-bottom:2.5rem; font-style:italic; }
+.sun-row { display:flex; justify-content:center; gap:1.2rem; margin:2.2rem 0; opacity:0.35; }
+.sun-row svg { width:32px; animation:pulse 2s ease-in-out infinite; }
+.sun-row svg:nth-child(2) { animation-delay:0.4s; width:40px; }
+.sun-row svg:nth-child(3) { animation-delay:0.8s; }
+
+.letter-card {
+  background: rgba(255,255,255,0.72);
+  border-radius:28px; border:1.5px solid rgba(233,30,99,0.1);
+  padding:3rem 2.5rem; backdrop-filter:blur(6px);
+  position:relative; overflow:hidden;
+}
+.letter-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,#f48fb1,#e91e63,#f48fb1);
+  border-radius:28px 28px 0 0;
+}
+.letter-para {
+  font-family:'Aref Ruqaa', serif;
+  font-size:1.18rem; color:#6a0f30; line-height:2.3;
+  margin-bottom:1.7rem; font-weight:400; direction:rtl; text-align:right;
+}
+.letter-para:last-of-type { margin-bottom:0; }
+.highlight { font-weight:700; color:#e91e63; }
+.sign-off { margin-top:2.2rem; font-family:'Cormorant Garamond', serif; font-size:1rem; font-weight:600; color:#c2185b; text-align:left; font-style:italic; }
+
+.q-section { max-width:600px; margin:0 auto; padding:3rem 1.5rem 6rem; text-align:center; }
+.q-sun { width:90px; animation:heartbeat 1.4s ease-in-out infinite; margin-bottom:1.2rem; }
+@keyframes heartbeat { 0%,100%{transform:scale(1);} 20%{transform:scale(1.18);} 40%{transform:scale(1);} 60%{transform:scale(1.1);} }
+.q-heading { font-family:'Cormorant Garamond', serif; font-size:clamp(2rem,6vw,3.5rem); color:#880e4f; margin-bottom:0.8rem; line-height:1.2; }
+.q-heading em { color:#e91e63; }
+.q-body { font-size:1rem; color:#c2185b; font-weight:300; line-height:1.9; margin-bottom:2.8rem; max-width:440px; margin-left:auto; margin-right:auto; }
+.btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-y {
+  padding:1rem 2.8rem; border-radius:50px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#f48fb1,#e91e63);
+  color:white; font-family:'Nunito',sans-serif; font-size:1.1rem; font-weight:600;
+  box-shadow:0 8px 26px rgba(233,30,99,0.28);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.btn-y:hover { transform:scale(1.06); box-shadow:0 14px 34px rgba(233,30,99,0.4); }
+.btn-n {
+  padding:1rem 2rem; border-radius:50px; cursor:pointer;
+  background:white; border:1.5px solid #f48fb1;
+  color:#e91e63; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:600;
+  transition:transform 0.25s;
+}
+
+.reply {
+  display:none; padding:3rem 1rem 5rem; text-align:center;
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+.reply-sun { width:100px; animation:heartbeat 1.2s ease-in-out infinite; margin-bottom:1.5rem; }
+.reply-yes {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(2.5rem,8vw,5rem);
+  color:#880e4f; font-style:italic; line-height:1.1; margin-bottom:1.2rem;
+}
+.reply-yes em { color:#e91e63; }
+.reply-sub { font-size:1.2rem; color:#c2185b; font-weight:300; line-height:2; max-width:380px; margin:0 auto; }
+.reply-sub .gold { color:#f9a825; font-size:1.5rem; }
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="bg"></div>
+
+<svg class="sun-bg tl" viewBox="0 0 200 200"><circle cx="100" cy="100" r="38" fill="#f9a825"/><g stroke="#f9a825" stroke-width="7" stroke-linecap="round"><line x1="100" y1="20" x2="100" y2="45"/><line x1="100" y1="155" x2="100" y2="180"/><line x1="20" y1="100" x2="45" y2="100"/><line x1="155" y1="100" x2="180" y2="100"/><line x1="41" y1="41" x2="59" y2="59"/><line x1="141" y1="141" x2="159" y2="159"/><line x1="159" y1="41" x2="141" y2="59"/><line x1="59" y1="141" x2="41" y2="159"/></g><circle cx="100" cy="100" r="28" fill="#ffca28"/></svg>
+<svg class="sun-bg tr" viewBox="0 0 200 200"><circle cx="100" cy="100" r="36" fill="#ffa726"/><g stroke="#ffa726" stroke-width="7" stroke-linecap="round"><line x1="100" y1="20" x2="100" y2="44"/><line x1="100" y1="156" x2="100" y2="180"/><line x1="20" y1="100" x2="44" y2="100"/><line x1="156" y1="100" x2="180" y2="100"/><line x1="42" y1="42" x2="60" y2="60"/><line x1="140" y1="140" x2="158" y2="158"/><line x1="158" y1="42" x2="140" y2="60"/><line x1="60" y1="140" x2="42" y2="158"/></g><circle cx="100" cy="100" r="26" fill="#ffcc02"/></svg>
+<svg class="sun-bg ml" viewBox="0 0 200 200"><circle cx="100" cy="100" r="34" fill="#f48fb1"/><g stroke="#f48fb1" stroke-width="7" stroke-linecap="round"><line x1="100" y1="22" x2="100" y2="46"/><line x1="100" y1="154" x2="100" y2="178"/><line x1="22" y1="100" x2="46" y2="100"/><line x1="154" y1="100" x2="178" y2="100"/><line x1="43" y1="43" x2="61" y2="61"/><line x1="139" y1="139" x2="157" y2="157"/><line x1="157" y1="43" x2="139" y2="61"/><line x1="61" y1="139" x2="43" y2="157"/></g><circle cx="100" cy="100" r="24" fill="#fce4ec"/></svg>
+<svg class="sun-bg br" viewBox="0 0 200 200"><circle cx="100" cy="100" r="38" fill="#f9a825"/><g stroke="#f9a825" stroke-width="7" stroke-linecap="round"><line x1="100" y1="20" x2="100" y2="45"/><line x1="100" y1="155" x2="100" y2="180"/><line x1="20" y1="100" x2="45" y2="100"/><line x1="155" y1="100" x2="180" y2="100"/><line x1="41" y1="41" x2="59" y2="59"/><line x1="141" y1="141" x2="159" y2="159"/><line x1="159" y1="41" x2="141" y2="59"/><line x1="59" y1="141" x2="41" y2="159"/></g><circle cx="100" cy="100" r="28" fill="#ffca28"/></svg>
+<svg class="sun-bg bl" viewBox="0 0 200 200"><circle cx="100" cy="100" r="32" fill="#ffa726"/><g stroke="#ffa726" stroke-width="6" stroke-linecap="round"><line x1="100" y1="24" x2="100" y2="46"/><line x1="100" y1="154" x2="100" y2="176"/><line x1="24" y1="100" x2="46" y2="100"/><line x1="154" y1="100" x2="176" y2="100"/><line x1="44" y1="44" x2="62" y2="62"/><line x1="138" y1="138" x2="156" y2="156"/><line x1="156" y1="44" x2="138" y2="62"/><line x1="62" y1="138" x2="44" y2="156"/></g><circle cx="100" cy="100" r="23" fill="#fff9c4"/></svg>
+
+<div class="page">
+
+  <section class="hero">
+    <svg class="hero-sun" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="36" fill="#f9a825"/>
+      <g stroke="#f9a825" stroke-width="5.5" stroke-linecap="round">
+        <line x1="70" y1="10" x2="70" y2="28"/><line x1="70" y1="112" x2="70" y2="130"/>
+        <line x1="10" y1="70" x2="28" y2="70"/><line x1="112" y1="70" x2="130" y2="70"/>
+        <line x1="26" y1="26" x2="39" y2="39"/><line x1="101" y1="101" x2="114" y2="114"/>
+        <line x1="114" y1="26" x2="101" y2="39"/><line x1="39" y1="101" x2="26" y2="114"/>
+      </g>
+      <circle cx="70" cy="70" r="27" fill="#ffca28"/>
+      <circle cx="61" cy="65" r="4" fill="#e65100"/><circle cx="79" cy="65" r="4" fill="#e65100"/>
+      <path d="M59 78 Q70 90 81 78" stroke="#e65100" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="54" cy="74" r="5" fill="#f48fb1" opacity="0.5"/><circle cx="86" cy="74" r="5" fill="#f48fb1" opacity="0.5"/>
+    </svg>
+    <p class="hero-eyebrow">something from my heart</p>
+    <h1 class="hero-title">Hello,<br><em>my sunshine</em></h1>
+    <p class="hero-sub">Sadeem, I made this page just for you — because some feelings deserve more than a text message.</p>
+    <p class="scroll-hint">scroll down ↓</p>
+  </section>
+
+  <div class="letter-wrap">
+    <p class="letter-label">✨ a letter for you ✨</p>
+    <h2 class="letter-heading">Everything I've been wanting to say</h2>
+    <div class="letter-card">
+      <p class="letter-para">ما أعرف كيف أرتب الكلام ولا كيف أقول كل اللي في قلبي بطريقة صح، بس اللي أعرفه إنك <span class="highlight">صرتِ شيء مهم بحياتي بدون ما أحس</span> — وجودك يغير يومي، صرت أتلهف على الوقت اللي بتجين وترسلين لي.</p>
+      <p class="letter-para">مرات ألقى نفسي أبتسم بس لأنك جيتي على بالي، ومرات أغمض عيوني وأتخيلك مع كل أغنية أسمعها. <span class="highlight">صدقيني ما طلعتي من بالي ولا مرة — ملازمتني مثل ظلي.</span></p>
+      <p class="letter-para">سديمي، أنا من اللحظة الأولى اللي عرفتك فيها قلت: <span class="highlight">هذي هي اللي أبيها تكون دايم في أيامي، أبيها معي لآخر عمري.</span> وأول مرة شفتك فيها، صدق أغرمت فيك — جذبتيني وجبتيني من أقصاي لين عندك.</p>
+      <p class="letter-para">كنت خايفة أبادر وأعترف، وكنت أقول ننتظر لين نعرف بعض أكثر — بس كلامك وسوالفك كانت تطمني وتحسسني <span class="highlight">إنك تبيني زي ما أنا أبيك.</span></p>
+      <p class="letter-para">أنتِ أحلى وأغلى صدفة صارت لي. والله إنك شمسي تنورين أيامي حتى وأنا مو حولك، ومعك أحس براحة ما لقيتها قبل. <span class="highlight">وجودك لحاله يكفيني</span> — ويخليني أؤمن إن فيه أشياء حلوة تجي فجأة وتغير كل شيء.</p>
+      <p class="letter-para">يمكن ما أعرف أعبر دايم، بس صدقيني يا سديم — <span class="highlight">أنتِ مُنى عيني وعيني ونظرها، وأبيك معي طول حياتي 🤍</span></p>
+      <p class="letter-para" style="text-align:center;">ولو خيّروني بين ألف بداية حلوة أو إني أبدأ معك من جديد —<br><span class="highlight">صدقيني راح أختارك أنتِ في كل مرة، وراح أحبك بدون تردد.</span></p>
+      <p class="sign-off">always yours 🌸</p>
+    </div>
+    <div class="sun-row">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="22" fill="#f9a825"/><g stroke="#f9a825" stroke-width="4" stroke-linecap="round"><line x1="50" y1="10" x2="50" y2="24"/><line x1="50" y1="76" x2="50" y2="90"/><line x1="10" y1="50" x2="24" y2="50"/><line x1="76" y1="50" x2="90" y2="50"/><line x1="22" y1="22" x2="32" y2="32"/><line x1="68" y1="68" x2="78" y2="78"/><line x1="78" y1="22" x2="68" y2="32"/><line x1="32" y1="68" x2="22" y2="78"/></g><circle cx="50" cy="50" r="16" fill="#ffca28"/><circle cx="44" cy="47" r="2.5" fill="#e65100"/><circle cx="56" cy="47" r="2.5" fill="#e65100"/><path d="M43 54 Q50 61 57 54" stroke="#e65100" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="38" cy="52" r="3.5" fill="#f48fb1" opacity="0.5"/><circle cx="62" cy="52" r="3.5" fill="#f48fb1" opacity="0.5"/></svg>
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="24" fill="#f48fb1"/><g stroke="#f48fb1" stroke-width="4" stroke-linecap="round"><line x1="50" y1="8" x2="50" y2="22"/><line x1="50" y1="78" x2="50" y2="92"/><line x1="8" y1="50" x2="22" y2="50"/><line x1="78" y1="50" x2="92" y2="50"/><line x1="21" y1="21" x2="31" y2="31"/><line x1="69" y1="69" x2="79" y2="79"/><line x1="79" y1="21" x2="69" y2="31"/><line x1="31" y1="69" x2="21" y2="79"/></g><circle cx="50" cy="50" r="17" fill="#fce4ec"/><circle cx="44" cy="47" r="3" fill="#c2185b"/><circle cx="56" cy="47" r="3" fill="#c2185b"/><path d="M43 55 Q50 63 57 55" stroke="#c2185b" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="22" fill="#ffa726"/><g stroke="#ffa726" stroke-width="4" stroke-linecap="round"><line x1="50" y1="10" x2="50" y2="24"/><line x1="50" y1="76" x2="50" y2="90"/><line x1="10" y1="50" x2="24" y2="50"/><line x1="76" y1="50" x2="90" y2="50"/><line x1="22" y1="22" x2="32" y2="32"/><line x1="68" y1="68" x2="78" y2="78"/><line x1="78" y1="22" x2="68" y2="32"/><line x1="32" y1="68" x2="22" y2="78"/></g><circle cx="50" cy="50" r="16" fill="#fff9c4"/><circle cx="44" cy="47" r="2.5" fill="#e65100"/><circle cx="56" cy="47" r="2.5" fill="#e65100"/><path d="M43 54 Q50 61 57 54" stroke="#e65100" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <section class="q-section" id="qSection">
+    <svg class="q-sun" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="36" fill="#e91e63"/>
+      <g stroke="#e91e63" stroke-width="5.5" stroke-linecap="round">
+        <line x1="70" y1="10" x2="70" y2="28"/><line x1="70" y1="112" x2="70" y2="130"/>
+        <line x1="10" y1="70" x2="28" y2="70"/><line x1="112" y1="70" x2="130" y2="70"/>
+        <line x1="26" y1="26" x2="39" y2="39"/><line x1="101" y1="101" x2="114" y2="114"/>
+        <line x1="114" y1="26" x2="101" y2="39"/><line x1="39" y1="101" x2="26" y2="114"/>
+      </g>
+      <circle cx="70" cy="70" r="27" fill="#f48fb1"/>
+      <circle cx="61" cy="65" r="4.5" fill="#880e4f"/><circle cx="79" cy="65" r="4.5" fill="#880e4f"/>
+      <path d="M59 78 Q70 90 81 78" stroke="#880e4f" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="54" cy="74" r="5.5" fill="#e91e63" opacity="0.4"/><circle cx="86" cy="74" r="5.5" fill="#e91e63" opacity="0.4"/>
+    </svg>
+    <h2 class="q-heading">So… <em>Sadeem</em>,</h2>
+    <p class="q-body">After everything I just told you — there's only one thing left to ask. And I mean it with everything I have. 🌸</p>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5.5vw,3rem); color:#880e4f; margin-bottom:2.2rem; font-style:italic;">
+      Will you be my girlfriend? 💕
+    </h3>
+    <div class="btns" id="btnRow">
+      <button class="btn-y" onclick="sayYes()">Yes! 🌸</button>
+      <button class="btn-n" id="noBtn" onclick="runAway()">Maybe not... 🙁</button>
+    </div>
+
+    <div class="reply" id="reply">
+      <svg class="reply-sun" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="36" fill="#f9a825"/>
+        <g stroke="#f9a825" stroke-width="5.5" stroke-linecap="round">
+          <line x1="70" y1="10" x2="70" y2="28"/><line x1="70" y1="112" x2="70" y2="130"/>
+          <line x1="10" y1="70" x2="28" y2="70"/><line x1="112" y1="70" x2="130" y2="70"/>
+          <line x1="26" y1="26" x2="39" y2="39"/><line x1="101" y1="101" x2="114" y2="114"/>
+          <line x1="114" y1="26" x2="101" y2="39"/><line x1="39" y1="101" x2="26" y2="114"/>
+        </g>
+        <circle cx="70" cy="70" r="27" fill="#ffca28"/>
+        <circle cx="61" cy="65" r="4" fill="#e65100"/><circle cx="79" cy="65" r="4" fill="#e65100"/>
+        <path d="M59 78 Q70 90 81 78" stroke="#e65100" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="54" cy="74" r="5" fill="#f48fb1" opacity="0.5"/><circle cx="86" cy="74" r="5" fill="#f48fb1" opacity="0.5"/>
+      </svg>
+      <p class="reply-yes">She Said <em>YES</em> 💖</p>
+      <p class="reply-sub">
+        you're my sunshine <span class="gold">☀️</span><br>
+        now and always <span class="gold">💛</span>
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const bg = document.getElementById('bg');
+  ['♥','♡','✿','✦','❀','★'].forEach(s => {
+    for (let j=0;j<4;j++){
+      const el = document.createElement('span');
+      el.className='fh';
+      el.textContent=s;
+      el.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*14}px;color:#e91e63;animation-duration:${10+Math.random()*10}s;animation-delay:${Math.random()*10}s;`;
+      bg.appendChild(el);
+    }
+  });
+
+  let nc = 0;
+  const nb = document.getElementById('noBtn');
+  const sadLabels = ['Are you sure? 😢','Please... 😭','This hurts 💔',"Don't do this 😞","I'm begging you 🥺😢"];
+  function runAway(){
+    nc++;
+    if(nc < sadLabels.length) nb.textContent = sadLabels[nc];
+    else nb.style.display='none';
+    nb.style.transform=`translate(${Math.random()*70-35}px,${Math.random()*50-25}px)`;
+  }
+
+  function sayYes(){
+    const qs = document.getElementById('qSection');
+    qs.querySelector('.q-sun').style.display='none';
+    qs.querySelector('.q-heading').style.display='none';
+    qs.querySelector('.q-body').style.display='none';
+    qs.querySelector('h3').style.display='none';
+    document.getElementById('btnRow').style.display='none';
+    document.getElementById('reply').style.display='block';
+    for(let i=0;i<55;i++){
+      const el=document.createElement('span');
+      el.className='fh';
+      el.textContent=['💕','🌸','☀️','✨','💛','🌟'][i%6];
+      el.style.cssText=`left:${Math.random()*100}%;font-size:${20+Math.random()*24}px;opacity:0.85;animation-duration:${2.5+Math.random()*3}s;animation-delay:${Math.random()*0.5}s;`;
+      bg.appendChild(el);
+    }
+  }
+</script>
+</body>
+</html>
